@@ -1,0 +1,284 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+/* *{
+    outline: 2px solid red;
+} */
+ a{
+    text-decoration: none;
+ }
+body{
+    background-color: #f7f8f9;
+    margin: 0px;
+    padding: 0px;
+}
+/* Stylen van de Navigatiebar */
+nav{
+    font-family:"Markazi Text";
+    font-size: 20px;
+    font-weight: 300;
+}
+ul{
+    list-style-type: none ;
+}
+nav ul{
+    margin: 0;
+    padding: 0 0 0 1em;
+    background-color: #483C32;  
+    height: 80px;
+    display: flex;
+    flex-wrap:wrap ;
+    align-items: center;
+    justify-content: start;
+}
+nav a{
+    color: #F8F5F2;
+}
+nav li{
+    padding: 7px;
+    position: relative;
+}
+/* Hover effect + lijntje onder items */
+li:before{
+    content: '';
+    background-color: #F8F5F2;
+    width: 0%;
+    height: 1%;
+    position: absolute;
+    bottom: 8px;
+    margin:0 auto;
+    transition: 1s ease;
+}
+li:hover::before{
+    transition: 0.5 s;
+    width: 50%;
+}
+
+/* Logo en Shopping bag goedzetten */
+.logo-merk{  
+  display: flex;
+  width: 100%;
+  height: 20px;
+  justify-content: center;
+}
+nav img{
+    width: 70px;
+    height: auto;
+    border-radius: 10%;
+    position: absolute;
+    top: 0.30em;
+    border-radius: 10px;
+}
+.bag{
+    display: flex;
+    justify-content: end;
+}
+.shoppingBag{
+    right: 1em;
+    width: 4%;
+    top: .2em;
+}
+/* Stylen Main */
+/* Foto van de deal */
+.deal-foto{
+    display: flex;
+    margin: 1rem auto;
+    width: 85%;
+    position: relative;
+}
+.titel{
+    max-width: 50%;
+    left: 10rem;
+    top: 8rem;
+    position: absolute;
+    z-index: 1;
+    font-size: 2.5rem;
+    color: #483C32;
+    font-family: "Cinzel", serif;
+}
+/* Knopje meer info */
+.knopje{
+    padding: 20px;
+    background-color: #483C32;
+    text-decoration: none;
+    color: #F8F5F2;
+}
+.meer-info{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family:"Markazi Text";
+    font-weight: 200;
+    font-size: 1.5rem;
+}
+.meer-info a:hover{
+    background-color: #D2C7BA;
+    color:#483C32;
+    transition: .7s;
+}
+/* Section onder de deal offer */
+.product-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-family: "Cinzel", serif;
+    font-weight:600;
+    color: #483C32;
+}
+
+/* Container voor de producten */
+.preview-products{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    gap: 6em;
+    width: 100%;
+    margin-top: 2em;
+}
+/* Afbeeldingen */
+.preview-products img{
+    max-width: 160px; 
+    width: 100%;    
+    height: auto;
+    object-fit: contain;
+    transition:  .7s ease;
+}
+.img-container{
+    width: 200px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: #f8f4ef; 
+    border: 1px solid #d4c3b5;
+}
+.preview-products img:hover{
+    transition: 1s ease;
+    transform: scale(1.15); 
+}
+.product-text{
+  color: #4a3c31; 
+  font-weight: 600;
+  font-size: 1.1em;
+  font-family: "Cinzel",serif;
+}
+a:hover .product-text{
+  color: #6E6D6A; 
+}
+.product p{
+    max-width: 200px;
+    font-family: "Libre Baskerville";
+    font-weight: 700;
+    color: #483C32;
+}
+.preview{
+    padding: 5em;
+}
+/* Filler */
+/* .filler{
+        margin: 10em 5em 5em ;
+}
+.filler h1{
+    font-family: "Cinzel", serif;
+    text-decoration: underline;
+    color: #A67B5B;
+}
+.filler p{
+    margin: 2rem 5rem 2rem 0;
+    text-align: left;
+    width: 40%;
+    font-style: italic;
+    font-family: "Libre Baskerville", serif;
+    color: #4a3c31;
+}
+.foto-verhaal{
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.foto-verhaal img{
+    width: 25%;
+    position: absolute;
+    bottom: 0;
+} */
+.filler h1{
+    font-family: "Cinzel", serif;
+    text-decoration: underline;
+    color: #A67B5B;
+    font-size: 1.5rem;
+}
+.filler p{
+    line-height: 2rem;
+    font-style: italic;
+    font-family: "Libre Baskerville", serif;
+    color: #4a3c31;
+}
+.filler{
+    display: flex;
+    justify-content: center;
+}
+
+
+.divfiller{
+    gap: 2rem;
+    position: relative;
+    display: flex;
+    width: 70%;
+    max-width: 100%;
+    z-index: -1;
+    padding: 10px;
+    border-radius: 10px;
+    padding: 10em;
+}
+
+h1{
+    text-align: center;
+}
+
+.linker-kant{
+    max-width: 100%;
+    width: 50%;
+}
+
+img{
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+}
+/*  Hr die de footer en de mainsectie van elkaar deelt */
+hr{
+    width: 80%;
+    height: 5px;
+    background-color: #483C32;
+    border-color: transparent;
+    border-radius: 2px;
+}
+footer{
+    position: relative;
+    padding: 4em;
+    background-color: #483C32;
+}
+.footer img{
+    width: 20px;
+    height: auto;
+    position: absolute;
+    right: 10em;
+}
+.footer ul{
+    position: absolute;
+    right: 30em;
+    top: 1em;
+    color: #f7f8f9;
+    font-family: "Libre Baskerville", serif;
+}
+/* Productpagina */

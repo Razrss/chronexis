@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="icon" href="IMG/Media.jpg">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="JS/query.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/8655fe5a7b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <a href="index.html"><li class="items">Home</li></a>
+                <a href="producten.html"><li class="items">Watches</li></a>
+                <a href="contactpagina.html"><li class="items">Contact</li></a>
+                <a href="about.html"><li class="items">About</li></a>
+            </ul>
+            <div class="logo-merk">
+                <img src="IMG/hello.png" alt="Logo" class="logo">
+            </div>
+            <div class="bag" class="images">
+                <a href=""><img src="IMG/bag.png" alt="shoppingCart" class="shoppingBag"></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-productpagina">
+
+            <div class="searchContainer">
+                <input class="input" name="text" id="search" placeholder="Search..." type="search">
+                <button onclick="searchProducts()">Zoeken</button>
+            </div>
+
+            <div id="categorie" class="categoryContainer">
+                <!-- Standaard knop om alles te tonen -->
+                <button onclick="toonalleproducten()">Alle producten</button>
+            </div>
+
+            <!-- <select class="selectContainer" id="animeSelect" onchange="filterAnime()">
+                <option value="0">-</option>
+            </select> -->
+
+            <div class="containertitle">
+                <h1 class="ourproductstitle">Our products</h1>
+            </div>
+
+            <article class="alle-producten" id="productlist"></article>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="producten.html">Watches</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contactpagina.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy;2023; Designed by <span class="designer">Sumon</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // query die alle categorieën ophaalt uit je Categorie tabel
+        let sql = "SELECT * FROM Categorie";
+        let categories = runQuery(sql);
+
+        // container waarin we de knoppen willen plaatsen
+        let categoryContainer = document.getElementById("categorie");
+
+        // Functie categorieknop 
+        function CategoryButton(naam, pkcategorie) {
+            let html = `<button onclick="filterProducts(${pkcategorie})">${naam}</button>`;
+            return html;
+        }
+
+        // loopen door alle opgehaalde categorieën
+        for ( categorie of categories) {
+            let categorieButton = CategoryButton(categorie.naam, categorie.pkcategorie);
+            categoryContainer.innerHTML += categorieButton;
+        }
+
+        function toonalleproducten() {
+            let query = "SELECT * FROM product";
+            let producten = runQuery(query);
+            toonwatches(producten);
+        }
+
+        function filterProducts(pkcategorie) {
+            let query = `SELECT * FROM product
+                        inner join product_categorie on PKproduct = productFK
+                        where CategorieFK=${pkcategorie}`;
+                        console.log(query);
+            let producten = runQuery(query);
+            
+            toonwatches(producten);
+        }
+        // Functie die alle producten toont in het productlist blok
+        function toonwatches(producten) {
+            const productlist = document.getElementById("productlist");
+            productlist.innerHTML = "";
+            for (let product of producten) {
+                productlist.innerHTML += `
+                    <a href="productpagina.html?id=${product.PKproduct}" class="grid-container-watch" id="Productlijst">
+                        <div class="img-container-productpagina">
+                            <img src="${product.Afbeelding}" alt="Foto-Horloge" class="watch-productpage">
+                        </div>
+                        <div class="productpage-name">
+                            <p class="product-name">${product.Naam}</p>
+                        </div>
+                    </a>`;
+            }
+        }
+
+
+        function searchProducts() {
+            let Watchname = document.getElementById("search").value;
+            let query = `SELECT * FROM product WHERE Naam LIKE '%${Watchname}%' OR Omschrijving LIKE '%${Watchname}%'`;
+            let producten = runQuery(query);
+            toonwatches(producten);
+        }
+
+        toonalleproducten();
+    </script>
+
+</body>
+</html>

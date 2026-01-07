@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+        <link rel="icon" href="IMG/Media.jpg">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://kit.fontawesome.com/8655fe5a7b.js" crossorigin="anonymous"></script>
+    <script  src="JS/query.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+         <nav>
+            <ul>
+            <a href="index.html"><li class="items">Home</li></a>
+            <a href="producten.html"><li class="items">Watches</li></a>
+            <a href="contactpagina.html"><li class="items">Contact</li></a>
+            <a href="about.html"><li class="items">About</li></a>
+            </ul>
+               <div class="logo-merk" >
+                     <img src="IMG/hello.png" alt="Logo" class="logo">
+               </div>
+               <div class="bag" class="images">
+               <a href=""><img src="IMG/bag.png" alt="shoppingCart" class="shoppingBag"></a>
+               </div>
+         </nav>
+</header>
+<body>
+    <main>
+<article class="productPage">
+    <div id="product" class="productContainer">
+        <div class="productImage" id="Image">
+            <img src="" alt="" id="img">
+        </div>
+
+        <div class="productInfo">
+            <div class="productinfo-container">
+                <h2 id="ProductNaam"></h2>
+
+                <label for="prijs" class="prijs-omschrijving">Prijs:</label>
+                <p class="infoText" id="prijs"></p>
+
+                <label for="omschrijving">Omschrijving:</label>
+                <p class="infoText" id="omschrijving">
+                </p>
+            </div>
+
+            <div class="buttons addToCart">
+                <a href="#" class="knopje knopAddToCart" id="addToCartButton">In tas</a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article class="Specifications">
+    <h2>Specifications</h2>
+    <hr>
+
+    <article class="background-color">
+        <div class="Specificaties">
+            <h3 class="Title-case">Case</h3>
+
+            <div class="details1">
+                <h4>Materiaal</h4>
+                <p id="materiaal" class="speicificaties"></p>
+            </div>
+
+            <div class="details2">
+                <h4>Grootte</h4>
+                <p id="grootte" class="speicificaties"></p>
+            </div>
+
+            <div class="details3">
+                <h4>Water Resistentie</h4>
+                <p id="diepte" class="speicificaties"></p>
+            </div>
+
+            <div class="detailsfotos">
+                <img src="" alt="Foto Horloge" id="IMAGE">
+            </div>
+        </div>
+    </article>
+</article>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="producten.html">Watches</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contactpagina.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy;2023; Designed by <span class="designer">Sumon</span></p>
+        </div>
+    </footer>
+
+<script>
+
+// Product ophalen dankzij een get variabele in de url
+let urlParams = new URLSearchParams(window.location.search);
+let productID = urlParams.get("id");
+
+let sql = `SELECT * FROM product WHERE PKproduct = ${productID}`;
+
+let product = runQuery(sql)[0];
+// Omdat we maar 1 product ophalen, kunnen we de [0] gebruiken om het eerste element uit de array te halen
+// Een hele lus is niet nodig
+
+// De juiste elementen selecteren en de informatie van het product erin zetten
+document.getElementById("ProductNaam").innerHTML = product.Naam;
+document.getElementById("prijs").innerHTML  = "€" +product.Prijs;
+document.getElementById("omschrijving").innerHTML = product.Omschrijving;
+document.getElementById("img").src = product.Afbeelding;
+document.getElementById("IMAGE").src=product.Afbeelding;
+document.getElementById("materiaal").innerHTML = product.Materiaal;
+document.getElementById("grootte").innerHTML = product.Grootte + "mm";
+document.getElementById("diepte").innerHTML = product.Diepte + "m";
+</script>
+</body>
+</html>

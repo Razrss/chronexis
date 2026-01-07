@@ -1,0 +1,748 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+/* *{
+    outline: 2px solid red;
+} */
+a{
+    text-decoration: none;
+}
+main{
+    position: relative;
+}
+body{
+    background-color: #F8F5F2;
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    width: 100%;
+}
+/* Stylen van de Navigatiebar */
+nav{
+    font-family:"Markazi Text";
+    font-size: 20px;
+    font-weight: 300;
+
+}
+ul{
+    list-style-type: none ;
+}
+nav ul{
+    margin: 0;
+    padding: 0 0 0 0em;
+    background-color: #342a22;  
+    height: 80px;
+    display: flex;
+    flex-wrap:wrap ;
+    align-items: center;
+    justify-content: start;
+}
+nav a{
+    color: #F8F5F2;
+}
+nav li{
+    padding: 7px;
+    position: relative;
+}
+/* Hover effect + lijntje onder items */
+nav li:before{
+    content: '';
+    background-color: #F8F5F2;
+    width: 0%;
+    height: 1%;
+    position: absolute;
+    bottom: 8px;
+    margin:0 auto;
+    transition: 0.7s ease;
+}
+nav li:hover::before{
+    transition: 0.5 s;
+    width: 50%;
+}
+
+/* Logo en shop bag goedzetten */
+.logo-merk{  
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+nav img{
+    width: 70px;
+    height: auto;
+    border-radius: 10%;
+    position: absolute;
+    top: 0.30em;
+    border-radius: 10px;
+}
+.fa-solid{
+    color: #F8F5F2;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 50px;
+}
+.bag{
+    display: flex;
+    justify-content: end;
+}
+.shoppingBag{
+    right: 1em;
+    width: 3em;
+    top: .2em;
+}
+/* Stylen Main */
+/* Foto van de deal */
+.deal-foto{
+    display: flex;
+    margin: 1rem auto;
+    width: 85%;
+    position: relative;
+}
+.titel{
+    max-width: 50%;
+    left: 10rem;
+    position: absolute;
+    z-index: 1;
+    font-size: 2.5rem;
+    color: #342a22;
+    font-family: "Cinzel", serif;
+}
+/* Knopje meer info */
+.knopje{
+    padding: 20px;
+    background-color: #342a22;
+    text-decoration: none;
+    color: #F8F5F2;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family:"Markazi Text";
+    font-weight: 200;
+    font-size: 1.5rem;
+}
+.buttons a:hover{
+    background-color: #D2C7BA;
+    color:#342a22;
+    transition: .5s;
+}
+/* section onder foto deal*/
+.product-title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-family: "Cinzel", serif;
+    font-weight:600;
+    color: #342a22;
+    transition: 1s;
+}
+.preview-products{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    gap: 6em;
+    width: 100%;
+    margin-top: 2em;
+    position: relative;
+    margin-bottom: 30em;
+}
+/* fotos */
+.preview-products img{
+    max-width: 10em; 
+    width: 100%;    
+    height: auto;
+    object-fit: contain;
+    transition:  .7s ease;
+}
+.img-container{
+    width: 12.4em;
+    height: 22em;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 1em;
+}
+.preview-products img:hover{
+    transition: 1s ease;
+    transform: scale(1.225); 
+}
+.product-texts{
+    display: flex;
+    justify-content: center;
+    gap: 6em;
+    position: absolute;
+    top: 25em;
+    margin-bottom: 10em;
+}
+.product-text{
+  font-size: .9em;
+  max-width: 200px;
+  font-family: "Libre Baskerville";
+  color: #817b73;
+  font-weight: 600;
+}
+.product-name{
+  color: #6E6D6A; 
+  font-size: 1.2em;
+  font-weight: 600;
+  font-family: "Cinzel", serif;
+  position: relative;
+}
+a:hover .product-name{
+  color: #342a22; 
+  transition: 1s;
+  transform: scale(1.15);
+}
+.preview{
+    padding: 3em;
+}
+/* Individuele Productpagina */
+.productPage{
+    padding-bottom: 5rem;
+        height: 50em;
+    margin-top: 5rem;
+}
+
+.productImage{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.productImage img{
+    width: 40%;
+    height: auto;
+    display: flex;
+    justify-self: center;
+}
+.productInfo h2{
+    font-family: "Cinzel", serif;
+    color: #342a22;
+    font-size: 3em;
+    text-decoration: underline;
+}
+.productInfo label{
+    font-size: 1em;
+    font-family: "Libre Baskerville";
+    color: #D2C7BA;
+    font-weight: 700;
+}
+.infoText{
+    color: #342a22;
+    max-width: 300px;
+    font-family: "Markazi text";
+    font-size: 1.05em;
+}
+.knopAddToCart{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+}
+.productContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 2em;
+    grid-row-gap: 2px;
+}
+.addToCart{
+    display: flex;
+    justify-content: start;
+}
+/* Specificaties op de productpagina */
+.Specifications{
+    margin-top: 10rem;
+}
+.Specifications h2{
+    margin: 0;
+}
+.Specificaties{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 8px;
+    padding:3em;
+}
+    
+.Title-case{
+    display: flex;
+    align-items: end;
+    grid-column: span 2;
+    grid-row: span 3;
+    grid-row-start:1 ;
+}
+
+.details1{
+    grid-row-start: 2;
+}
+
+.details2{
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.details3{
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+.detailsfotos{
+    grid-row-start:1;
+    grid-column-start: 3;
+    grid-column: span 2;
+    grid-row: span 3;
+}
+#IMAGE{
+    width: 50%;
+}
+.Specifications h2{
+    font-family: "Cinzel",serif;
+    color: #342a22;
+    font-size: 3em;
+}
+.Specifications  h4{
+    font-family: "Markazi text";
+    color: #342a22;
+    font-size: 2em;
+}
+.speicificaties{
+    color: #342a22;
+    font-family: "Libre Baskerville";
+    font-size: 1rem;
+}
+.Title-case{
+    font: "Libre Baskerville";
+    color: #342a22;
+    font-size: 2.5rem;
+}
+hr{
+    margin: 0;
+    width: 50%;
+    height: 5px;
+    border-color: transparent;
+    background-color: #342a22;
+}
+/* Algemene Productpagina */
+/* From Uiverse.io by alexruix */ 
+.input {
+  max-width: 190px;
+  background-color: #f5f5f5;
+  color: #242424;
+  padding: .15rem .5rem;
+  min-height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  line-height: 1.15;
+  box-shadow: 0px 10px 20px -18px;
+}
+
+input:focus {
+  border-bottom: 2px solid #342a22;
+  border-radius: 4px 4px 2px 2px;
+}
+
+input:hover {
+  outline: 1px solid lightgrey;
+}
+.ourproductstitle{
+    margin: 0 auto;
+    font-family: "Cinzel", serif;
+    font-weight: 450;
+    font-size: 3rem;
+}
+.containertitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+.categoryContainer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1em;
+}
+.categoryContainer button{
+    background-color: #342a22;
+    color: #D2C7BA;
+    padding: 1em;
+    outline: none;
+    border: none;
+    transition: 0.5s;
+}
+.categoryContainer button:hover{
+    transition: 0.5s;
+    color: #342a22;
+    background-color: #D2C7BA;
+}
+/* Searchbox */
+.searchContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+}
+.searchContainer .inputSearch{
+    outline: none;
+    border: none;
+    background-color: #D2C7BA;
+    color: #342a22;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+}
+.inputSearch::placeholder{
+    color: #342a22;
+}
+.alle-producten {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding-top: 3rem;
+    max-width: 70%;
+}
+.img-container-productpagina{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}       
+.productpage-name{
+    display: flex;
+    justify-content: center;
+}
+.watch-productpage{
+    width: 100px;
+    object-fit: contain;
+    transition: 0.7s;
+    margin-top: 1em;
+    min-width: 150px;
+    min-height: 300px;
+}
+.grid-container-watch:hover .watch-productpage{
+    transform: scale(1.115);
+    transition: 0.7s;
+}
+.grid-container-watch{
+    background-color: #e4e4e4;
+    transition: 0.7s;
+    border-radius: 10px;
+    box-shadow: 1px 38px 19px -37px #342a22;
+    -webkit-box-shadow: 1px 38px 19px -37px #342a22;
+    -moz-box-shadow: 1px 38px 19px -37px #342a22;
+}
+.grid-container-watch:hover{
+    background-color: #d4d3d3;
+    transition: 0.7s ;
+}
+/* Deal Pagina */
+.video{
+    width: 100%;
+}
+.tagheuerdealfoto{
+    width: 100%;
+    padding-left: 1rem;
+}
+.astonmartindealfoto{
+    width: 100%;
+    margin-top: 20em;
+}
+.auto{
+    margin-top: 5rem;
+}
+.container {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+.container p{
+    max-width: 600px;
+}
+ /*Contact-Pagina  */
+ .contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: url();
+} 
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+ .content h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #342a22;
+}
+.content p{
+     font-weight: 300;
+     color: #333;
+}
+.contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+/* De cirkel zelf */
+/* .icon {
+    min-width: 60px;
+    height: 60px;
+    background-color: #D2C7BA;
+    display: flex;          
+    align-items: center;     
+    justify-content: center;  
+    border-radius: 50%;
+    font-size: 22px;
+} */
+
+/* Het icoon binnen de cirkel */
+/* .icon i {
+    color: #483c32;         
+    position: static;     
+    width: auto;            
+} */
+
+/* Verwijder of pas deze aan, want deze overschrijft alle icons op je pagina */
+.fa-solid {
+    /* De oude code hier zorgde ervoor dat icons rechtsboven in je scherm vlogen */
+    position: static; 
+}
+.box .text{
+    display: flex;
+    margin-left: 20px;
+    margin-top: -15px;
+    font-size: 16px;
+    flex-direction: column;
+}
+.contact-pageh3{
+    font-weight: 500;
+    color: #342a22;
+}
+.contactForm{
+    padding: 40px;
+    background-color: #f9f9f7;   
+    box-shadow: 6px 6px 12px 0px #342a22;
+    -webkit-box-shadow: 6px 6px 12px 0px #342a22;
+    -moz-box-shadow: 6px 6px 12px 0px #342a22; 
+    width: 100%;
+}
+
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 50%;
+    margin-top: 10px;
+}
+.contactForm .inputBox .inputvelden,textarea
+{
+    width: 100%;
+    padding: 5px 0;
+    width: 100%;
+    padding: 5px 0;
+    font-size:  16px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #333;
+    resize: none;
+    background-color: #f9f9f7;
+}
+.submit{
+    width: 100%;
+    padding: 5px 0;
+    width: 50%;
+    padding: 5px 0;
+    font-size:  20px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    resize: none;
+    transition: 1s;
+    background-color: #342a22;
+    color: #D2C7BA;
+    transition: 1s;
+    font-family: "Markazi Text";
+}
+.submit:hover{
+    background-color: #D2C7BA;
+    color: #342a22;
+    transition: 1s;
+}
+/* iframe{
+    width: 100%;
+    border-radius: 10px;
+} */
+span{
+    color: #342a22;
+}
+.contactForm h3{
+    font-family: "Cinzel",serif;
+    color: #342a22;
+    font-size: 2em;
+    font-weight: 200;
+}
+.horloge, .auto{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin: 2rem;
+  text-align: center;
+  align-items: center;
+}
+.horloge img, .auto img {
+  max-width: 100%;
+}
+.Gesprek {
+  text-align: center;
+}
+.Gesprek a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #342a22;
+  text-decoration: none;
+  color: #D9D9D9;
+  border-radius: 25px;
+  margin: 3rem;
+}
+/* Code footer */
+footer{
+    background-color:#342a22;
+}
+.footerContainer{
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 5rem;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: #D2C7BA;
+    margin: 10px;
+    border-radius: 50%;
+    transition: 1s;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: #342a22;
+    transition: 1.5s;
+}
+.socialIcons a:hover{
+    background-color: #342a22;
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: #D2C7BA;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:#D2C7BA;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #342a22;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: #D2C7BA;
+}
+.designer{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+    font-family: "Cinzel, serif";
+    color: #D2C7BA;
+}
+.abouth1{
+    display: flex;
+    justify-content: center;
+}
+.abouth1 h1{
+    font-size: 36px;
+    font-weight: 200;
+    color: #342a22;
+    font-family: "Cinzel,";
+}
+.pabout{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pabout p{
+    max-width: 700px;
+    font-size: 1.5rem;
+}
+.about{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+.contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contents h2{
+    font-size: 50px;
+    font-weight: 200;
+    color: #342a22;
+    font-family: "Cinzel,";
+}
+/* Eventuele vragen/reacties
+-Ik vond dat de pagina er wat leegjes uitzach daarmee hadk die foto en tekst toegevoed maar je raadde dit af, waarom (line194-220)?
+-Kleuren ben ik niet zeker van of het genoeg is of te veel is en/of de kleurencombo wel goed is zou ik hier feedback ook op mogen?
+-... */
+p{
+    box-shadow: #333;
+}

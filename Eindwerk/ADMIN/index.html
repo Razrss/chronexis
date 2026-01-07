@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-pagina</title>
+    <script src="JS/query.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>Beheer producten</h1>
+    <a href="nieuw_product.html">Nieuw product</a>
+    <div id="productlist"></div>
+    <img src="" alt="">
+    <script>
+
+        const productlist = document.getElementById("productlist");
+
+        let query = "SELECT * FROM product";
+
+        let producten = runQuery(query);
+
+        console.log(producten);
+
+        // Container leegmaken
+        productlist.innerHTML= " ";
+        // Loop door de producten en maak een lijst
+        for(let product of producten){
+            productlist.innerHTML += `<p class="">${product.Naam} - €${product.Prijs} </p>
+                                        <img src='${product.Afbeelding}' alt='Afbeelding'>
+                                        <a href="aanpassen.html?id=${product.PKproduct}">
+                                        <button> Aanpassen</button>
+                                        </a>`
+        }
+    </script>
+</body>
+</html>

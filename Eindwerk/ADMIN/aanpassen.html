@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanpassen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="JS/query.js"></script>
+</head>
+<body>
+    <h1>Product aanpassen</h1>
+    <label for="naam">Naam</label>
+    <input type="text" name="" id="naam">
+    <label for="prijs">Prijs</label>
+    <input type="number" id="prijs">
+    <img id="img" src="" alt="">
+    <label for="afbeelding">Afbeelding</label>
+    <input type="text" id="afbeelding">
+    <label for="omschrijving">omschrijving</label>
+    <input type="text" id="omschrijving">
+    <label for="materiaal">materiaal</label>
+    <input type="text" id="materiaal">
+    <label for="Grootte">Grootte</label>
+    <input type="number" id="Grootte">
+    <label for="diepte" type="number">Diepte</label>
+    <input type="number" id="diepte">
+
+    <button onclick="opslaan()">opslaan</button>  
+
+    <script>
+        // ophalen van de primary key uit de url
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        let query = "SELECT * FROM product WHERE PKproduct = " + productId;
+
+        let product = runQuery(query)[0];
+
+        // Invullen van de waarden
+        document.getElementById("naam").value = product.Naam;
+        document.getElementById("prijs").value = product.Prijs;
+        document.getElementById("afbeelding").value = product.Afbeelding;
+        document.getElementById("img").src = product.Afbeelding;
+        document.getElementById("omschrijving").value = product.Omschrijving
+        document.getElementById("Grootte").value = product.Grootte
+        document.getElementById("materiaal").value = product.Materiaal
+        document.getElementById("diepte").value = product.Diepte
+
+
+
+        function opslaan(){
+            let query = `UPDATE product SET Naam = "${document.getElementById("naam").value}",
+                        Prijs = "${document.getElementById("prijs").value}", 
+                        Afbeelding = "${document.getElementById("afbeelding").value}",
+                        Omschrijving = "${document.getElementById("omschrijving").value}",
+                        Grootte = "${document.getElementById("Grootte").value}",
+                        Materiaal = "${document.getElementById("materiaal").value}",
+                        Diepte = "${document.getElementById("diepte").value}"
+                        WHERE PKproduct = ${productId}`;
+            console.log(query);
+         if(document.getElementById("prijs").value < 0){
+            alert("Gaat niet")
+        }
+        else{
+            runQuery(query);
+        }
+        }
+    </script>
+</body>
+</html>
